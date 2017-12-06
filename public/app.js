@@ -22,6 +22,9 @@ var populateBeersList = function(){
   var imageClass = "beerImage";
 
   for (var beer of beers){
+    var ingredients = beer.ingredients;
+    var malts = ingredients.malt;
+
     imageLi = createLi();
     imageLi.innerHTML = "<img class=" + imageClass + " src=" + beer.image_url + " />  ";
 
@@ -29,13 +32,20 @@ var populateBeersList = function(){
     nameLi.classList = "beerName";
     nameLi.innerText = beer.name;
 
-    
+    maltLi = createLi();
+    maltLi.classList = "beerMalt";
+    maltString = "Malt: \n"
+    for (var malt of malts){
+      maltString += "- " + malt.name + "\n";
+    }
+    maltLi.innerText = maltString;
 
     beerUl = createUl();
     beerUl.classList = "beerItem";
 
-    beerUl.append(imageLi);
-    beerUl.append(nameLi);
+    beerUl.appendChild(imageLi);
+    beerUl.appendChild(nameLi);
+    beerUl.appendChild(maltLi);
     container.appendChild(beerUl);
   }
 }

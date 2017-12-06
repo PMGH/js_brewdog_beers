@@ -57,3 +57,9 @@ h1 {
 .beerName {
   font-weight: 900;
 }
+
+.beerMalt {
+  font-size: 12px;
+  font-style: italic;
+  text-align: left;
+}
