@@ -16,15 +16,16 @@ var requestComplete = function(){
 
   console.log("response received");
   populateBeersList();
-  debugger;
 }
 
 var populateBeersList = function(){
   var container = document.getElementById('beer-list');
+  var imageClass = "beerImage";
 
   for (var beer of beers){
     newLi = createLi();
-    newLi.innerText = beer.name;
+    // newLi.innerText = beer.name;
+    newLi.innerHTML = "<img class=" + imageClass + " src=" + beer.image_url + " />  " + beer.name;
     container.appendChild(newLi);
   }
 }
