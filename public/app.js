@@ -24,6 +24,8 @@ var populateBeersList = function(){
   for (var beer of beers){
     var ingredients = beer.ingredients;
     var malts = ingredients.malt;
+    var hops = ingredients.hops;
+    var yeasts = ingredients.yeast;
 
     imageLi = createLi();
     imageLi.innerHTML = "<img class=" + imageClass + " src=" + beer.image_url + " />  ";
@@ -40,19 +42,31 @@ var populateBeersList = function(){
     }
     maltLi.innerText = maltString;
 
+    hopLi = createLi();
+    hopLi.classList = "beerHop";
+    hopString = "Hop: \n";
+    for (var hop of hops){
+      hopString += "- " + hop.name + "\n";
+    }
+    hopLi.innerText = hopString;
+
+    yeastLi = createLi();
+    yeastLi.classList = "beerYeast";
+    yeastString = "Yeast: \n";
+    yeastString += "- " + yeasts + "\n";
+    yeastLi.innerText = yeastString;
+
     beerUl = createUl();
     beerUl.classList = "beerItem";
 
     beerUl.appendChild(imageLi);
     beerUl.appendChild(nameLi);
     beerUl.appendChild(maltLi);
+    beerUl.appendChild(hopLi);
+    beerUl.appendChild(yeastLi);
     container.appendChild(beerUl);
   }
 }
-
-// var populateIngredients = function(){
-//   var
-// }
 
 var createLi = function(){
   return document.createElement('li');
