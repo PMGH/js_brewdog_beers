@@ -1,5 +1,4 @@
 main{
-  width: 80%;
   margin: 0 auto;
 }
 
@@ -9,6 +8,17 @@ input{
   width: 400px;
   font-size: 22px;
   margin: 10px;
+}
+
+#brewdog-icon {
+  height: 50px;
+  width: auto;
+}
+
+h1 {
+  font-size: 65px;
+  margin: 0;
+  width: 100%;
 }
 
 .beers{
