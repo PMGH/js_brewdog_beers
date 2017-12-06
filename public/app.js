@@ -6,11 +6,8 @@ var makeRequest = function(url, callback){
 }
 
 var requestComplete = function(){
-
   if (this.status != 200) return;
-
   var jsonString = this.responseText;
-
   var beerData = JSON.parse(jsonString);
 
   for (var beer of beerData){
@@ -18,7 +15,22 @@ var requestComplete = function(){
   }
 
   console.log("response received");
-  console.log(beers.length);
+  populateBeersList();
+  debugger;
+}
+
+var populateBeersList = function(){
+  var container = document.getElementById('beer-list');
+
+  for (var beer of beers){
+    newLi = createLi();
+    newLi.innerText = beer.name;
+    container.appendChild(newLi);
+  }
+}
+
+var createLi = function(){
+  return document.createElement('li');
 }
 
 
@@ -26,6 +38,7 @@ var beers = [];
 
 var app = function(){
 
+  // request (GET) data from API
   var url = "https://api.punkapi.com/v2/beers";
   makeRequest(url, requestComplete);
 
