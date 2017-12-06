@@ -14,7 +14,6 @@ var requestComplete = function(){
     beers.push(beer);
   }
 
-  console.log("response received");
   populateBeersList();
 }
 
@@ -23,15 +22,34 @@ var populateBeersList = function(){
   var imageClass = "beerImage";
 
   for (var beer of beers){
-    newLi = createLi();
-    // newLi.innerText = beer.name;
-    newLi.innerHTML = "<img class=" + imageClass + " src=" + beer.image_url + " />  " + beer.name;
-    container.appendChild(newLi);
+    imageLi = createLi();
+    imageLi.innerHTML = "<img class=" + imageClass + " src=" + beer.image_url + " />  ";
+
+    nameLi = createLi();
+    nameLi.classList = "beerName";
+    nameLi.innerText = beer.name;
+
+    
+
+    beerUl = createUl();
+    beerUl.classList = "beerItem";
+
+    beerUl.append(imageLi);
+    beerUl.append(nameLi);
+    container.appendChild(beerUl);
   }
 }
 
+// var populateIngredients = function(){
+//   var
+// }
+
 var createLi = function(){
   return document.createElement('li');
+}
+
+var createUl = function(){
+  return document.createElement('ul');
 }
 
 

@@ -15,6 +15,10 @@ input{
   width: auto;
 }
 
+ul {
+  padding: 0;
+}
+
 h1 {
   font-size: 65px;
   margin: 0;
@@ -26,21 +30,30 @@ h1 {
   -webkit-padding-start: 0px;
 }
 
-.beerImage {
-  height: auto;
-  width: 40px;
-}
-
 #beer-list {
   display: flex;
-  align-items: baseline;
+  align-items: flex-end;
   list-style-type: none;
   flex-flow: row wrap;
   justify-content: space-around;
 }
 
-li {
-  height: 200px;
-  width: 200px;
+.beerItem {
+  background-color: #F4F3EE;
+  border: 1px solid #F5F4EF;
+  list-style-type: none;
+  height: auto;
+  width: 100px;
+  padding: 20px;
   margin: 20px;
+  text-align: center;
+}
+
+.beerImage {
+  height: auto;
+  width: 40px;
+}
+
+.beerName {
+  font-weight: 900;
 }
