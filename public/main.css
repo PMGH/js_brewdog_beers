@@ -1,5 +1,5 @@
 main{
-  width: 300px;
+  width: 80%;
   margin: 0 auto;
 }
 
@@ -13,4 +13,24 @@ input{
 
 .beers{
   padding: 5px;
+  -webkit-padding-start: 0px;
+}
+
+.beerImage {
+  height: auto;
+  width: 40px;
+}
+
+#beer-list {
+  display: flex;
+  align-items: baseline;
+  list-style-type: none;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+li {
+  height: 200px;
+  width: 200px;
+  margin: 20px;
 }
