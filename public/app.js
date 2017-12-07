@@ -22,39 +22,13 @@ var populateBeersList = function(){
   var imageClass = "beerImage";
 
   for (var beer of beers){
-    var ingredients = beer.ingredients;
-    var malts = ingredients.malt;
-    var hops = ingredients.hops;
-    var yeasts = ingredients.yeast;
-
     imageLi = createLi();
     imageLi.innerHTML = "<img class=" + imageClass + " src=" + beer.image_url + " />  ";
 
-    nameLi = createLi();
-    nameLi.classList = "beerName";
-    nameLi.innerText = beer.name;
-
-    maltLi = createLi();
-    maltLi.classList = "beerMalt";
-    maltString = "Malt: \n"
-    for (var malt of malts){
-      maltString += "- " + malt.name + "\n";
-    }
-    maltLi.innerText = maltString;
-
-    hopLi = createLi();
-    hopLi.classList = "beerHop";
-    hopString = "Hop: \n";
-    for (var hop of hops){
-      hopString += "- " + hop.name + "\n";
-    }
-    hopLi.innerText = hopString;
-
-    yeastLi = createLi();
-    yeastLi.classList = "beerYeast";
-    yeastString = "Yeast: \n";
-    yeastString += "- " + yeasts + "\n";
-    yeastLi.innerText = yeastString;
+    var nameLi = createNameLi(beer);
+    var maltLi = createMaltLi(beer);
+    var hopLi = createHopLi(beer);
+    var yeastLi = createYeastLi(beer);
 
     beerUl = createUl();
     beerUl.classList = "beerItem";
@@ -66,6 +40,50 @@ var populateBeersList = function(){
     beerUl.appendChild(yeastLi);
     container.appendChild(beerUl);
   }
+}
+
+var createNameLi = function(beer){
+  nameLi = createLi();
+  nameLi.classList = "beerName";
+  nameLi.innerText = beer.name;
+  return nameLi;
+}
+
+var createMaltLi = function(beer){
+  var malts = beer.ingredients.malt;
+
+  maltLi = createLi();
+  maltLi.classList = "beerMalt";
+  maltString = "Malt: \n"
+  for (var malt of malts){
+    maltString += "- " + malt.name + "\n";
+  }
+  maltLi.innerText = maltString;
+  return maltLi;
+}
+
+var createHopLi = function(beer){
+  var hops = beer.ingredients.hops;
+
+  hopLi = createLi();
+  hopLi.classList = "beerHop";
+  hopString = "Hop: \n";
+  for (var hop of hops){
+    hopString += "- " + hop.name + "\n";
+  }
+  hopLi.innerText = hopString;
+  return hopLi;
+}
+
+var createYeastLi = function(beer){
+  var yeasts = beer.ingredients.yeast;
+
+  yeastLi = createLi();
+  yeastLi.classList = "beerYeast";
+  yeastString = "Yeast: \n";
+  yeastString += "- " + yeasts + "\n";
+  yeastLi.innerText = yeastString;
+  return yeastLi;
 }
 
 var createLi = function(){
